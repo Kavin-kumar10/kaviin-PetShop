@@ -6,7 +6,9 @@ import React from 'react'
 export default Intro = ({navigation}) => {
   return (
     <View style={styles.Intro}>
-      <IntroImg  width={250}/>
+      <View style={styles.imgContain}>
+        <IntroImg  width={280}/>
+      </View>
       <View style={styles.btnContain}>
         <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Log')}>
             <Text style={styles.btnName}>Login</Text>
@@ -15,6 +17,9 @@ export default Intro = ({navigation}) => {
             <Text style={styles.btnName}>SignUp</Text>
         </TouchableOpacity>
       </View>
+        <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Home')}>
+            <Text style={styles.btnName}>Guest Mode</Text>
+        </TouchableOpacity>
     </View>
   )
 }
@@ -24,10 +29,18 @@ const styles = StyleSheet.create({
       flex:1,
       backgroundColor:myColors.tertiary,
       alignItems:"center",
-      justifyContent:"center",
+      justifyContent:"space-around",
+      flexDirection:'column'
     },
+    imgContain:{
+      flex:5,
+      alignItems:"center",
+      justifyContent:"center",
+    },  
     btnContain:{
+      flex:1,
       width:350,
+      alignItems:"center",
       flexDirection:"row",
     },  
     btnName:{

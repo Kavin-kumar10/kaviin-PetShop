@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { View,Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,14 +7,17 @@ import Login from './Components/Login';
 import Main from './Components/Main';
 import SignUp from './Components/SignUp';
 import Intro from './Components/Intro';
-// import { ListProvider } from './Context/ListProvider';
+import { ListProvider } from './Context/ListContext';
+
+
+
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <>
-    {/* <ListProvider>     */}
+    <ListProvider>    
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName="Intro">
       <Stack.Screen  name="Intro" component = {Intro}/>
@@ -22,7 +26,7 @@ export default function App() {
       <Stack.Screen  name="Home" component = {Main}/>
       </Stack.Navigator>
     </NavigationContainer>
-    {/* </ListProvider> */}
+    </ListProvider>
     </>
   );
 }
