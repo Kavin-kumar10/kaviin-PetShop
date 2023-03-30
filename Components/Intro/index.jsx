@@ -17,9 +17,9 @@ export default Intro = ({navigation}) => {
             <Text style={styles.btnName}>SignUp</Text>
         </TouchableOpacity>
       </View>
-        <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Home')}>
+        {/* <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Home')}>
             <Text style={styles.btnName}>Guest Mode</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
     </View>
   )
 }

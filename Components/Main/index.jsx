@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Body from './Body';
 
+
 export default function Main() {
   // console.log(require("./assets/icon.png"));
   return (

@@ -14,7 +14,6 @@ export default function SignUp({navigation}){
   const [Users,setUsers] = useContext(ListContext);
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}} >
-
     <View style={styles.SignUp}>
       <Sign height={300} width={300}/>
       <View>
@@ -25,12 +24,15 @@ export default function SignUp({navigation}){
             email:'',
             password:''
           }}
+
+
           validationSchema={
             Yup.object().shape({
               UserName:Yup.string().max(30,"Too long name").min(5,"Too short name").required("Field Required"),
               email:Yup.string().email('invalid email').required('Field Required'),
               password:Yup.string().min(6,"password must be atleast greater than 6 letters").required("field required")
-            })}
+            })
+          }
 
           onSubmit={(values,{resetForm})=>{
             console.log(values);
