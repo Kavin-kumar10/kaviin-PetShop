@@ -15,8 +15,10 @@ export default function SignUp({navigation}){
   return (
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}} >
     <View style={styles.SignUp}>
-      <Sign height={300} width={300}/>
-      <View>
+      <View style={styles.img}>
+        <Sign height={300} width={300}/>
+      </View>
+      <View style={styles.form}>
         <Text style={styles.head}>SignUp</Text>
         <Formik 
           initialValues={{
@@ -92,52 +94,65 @@ export default function SignUp({navigation}){
 }
 
 const styles = StyleSheet.create({
-    SignUp:{
-        maxHeight:ScreenHeight+100,
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-        backgroundColor:myColors.primary
-    },
-    head:{
-      color:myColors.tertiary,
-      borderColor:myColors.tertiary,
-      borderBottomWidth:2,
-      paddingBottom:10,
-      // alignSelf:'center',
-      fontSize:40,
-      margin:20
-    },
-    field:{
-      padding:5,
-      paddingVertical:5,
-      margin:10,
-    },  
-    textInp:{
-      borderColor:myColors.secondary,
-      paddingHorizontal:2,
-      paddingVertical:8,
-      borderBottomWidth:2,
-      width:300,
-      fontSize:20
-    },
-    btn:{
-      height:50,
-      width:ScreenWidth-100,
-      marginVertical:30,
-      alignItems:"center",
-      justifyContent:"center",
-      borderRadius:10,
-      alignSelf:'center',
-      backgroundColor:myColors.tertiary,
-    },
-    btnTxt:{
-      fontSize:25,
-      color:myColors.primary,
-    },
-    err:{
-      color:'red',
-      fontSize:12,
-      paddingTop:5
-    }
+  SignUp:{
+      maxHeight:ScreenHeight+100,
+      flex:1,
+      alignItems:'center',
+      justifyContent:'center',
+      backgroundColor:myColors.primary,
+  },
+  img:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'flex-end'
+  },
+  form:{
+    flex:1,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  head:{
+    color:myColors.tertiary,
+    borderColor:myColors.tertiary,
+    borderBottomWidth:2,
+    paddingBottom:10,
+    padding:5,
+    alignSelf:'center',
+    width:300,
+    fontSize:35,
+    marginBottom:12
+  },
+  field:{
+    padding:5,
+    paddingVertical:5,
+    margin:3,
+  },  
+  textInp:{
+    borderColor:myColors.secondary,
+    paddingHorizontal:2,
+    paddingVertical:5,
+    borderBottomWidth:2,
+    width:300,
+    fontSize:18
+  },
+  btn:{
+    height:40,
+    width:300,
+    marginVertical:20,
+    alignItems:"center",
+    justifyContent:"center",
+    borderRadius:10,
+    alignSelf:'center',
+    backgroundColor:myColors.tertiary,
+  },
+  btnTxt:{
+    fontSize:20,
+    color:myColors.primary,
+  },
+  err:{
+    color:'red',
+    fontSize:12,
+    paddingTop:5
+  }
+
 })
