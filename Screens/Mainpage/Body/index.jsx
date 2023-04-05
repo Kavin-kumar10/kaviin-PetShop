@@ -1,14 +1,27 @@
 import React from "react";
 import { ScrollView,View,StyleSheet,Text,Image } from "react-native";
-import Datas from '../../../Dogs.json'
+import Dogs from '../../../JSON/Dogs.json'
+import Cats from '../../../JSON/Cats.json'
 import { myColors } from "../../../Config/Color";
 import Ionicons from '@expo/vector-icons/Ionicons'
 import {pet1,pet2,pet3,pet4,pet5} from '../../../assets';
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { useRoute } from "@react-navigation/native";
 
 
 
 const Body = () =>{
+    const route = useRoute();
+    let Datas;
+    if(route.name == 'Dogs'){
+         Datas = Dogs;
+    }
+    else if(route.name == 'Cats'){
+         Datas = Cats;
+    }
+    if(!Datas){
+        return null;
+    }
     return(
         <View style={Styles.Body}>
         <View style={{flexDirection:'row'}}>
@@ -32,7 +45,7 @@ const Body = () =>{
                     {
                         Datas.animals?.map((item,index)=>{
                             return(
-                            <View style={Styles.BodyBox} key={item.id}>
+                            <View style={Styles.BodyBox} key={index}>
                                 <TouchableOpacity>
                                 <Image style={Styles.image} source={{uri:`https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/${item.id}/1/?bust=1680411270`}}/>
                                 <View style={Styles.Desc}>

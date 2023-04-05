@@ -1,13 +1,13 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View,Image} from 'react-native'
 import { myColors } from '../../Config/Color'
-import IntroImg from '../../assets/Front.svg'
+import MyImg from '../../assets/Front.svg'
 import React from 'react'
 
 export default Intro = ({navigation}) => {
   return (
     <View style={styles.Intro}>
       <View style={styles.imgContain}>
-        <IntroImg  width={280}/>
+        <MyImg height={300} width={300}/>
       </View>
       <View style={styles.desc}>
         <Text style={styles.descTxt}>Find out your companion on pet shelter</Text>
@@ -17,15 +17,10 @@ export default Intro = ({navigation}) => {
         <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Sign')}>
             <Text style={styles.btnName}>SignUp</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Root',{screen:'HomePage'})}>
+        <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Home')}>
             <Text style={styles.btnName}>Demo User</Text>
         </TouchableOpacity>
       </View>
-      {/* <View style={styles.Guest}>
-        <TouchableOpacity style={[styles.introBtn,{marginTop:0}]} onPress={()=>navigation.navigate('Root',{screen:'HomePage'})}>
-            <Text style={styles.btnName}>Guest Mode</Text>
-        </TouchableOpacity>
-      </View> */}
     </View>
   )
 }

@@ -9,7 +9,7 @@ const HomePage = () => {
     <SafeAreaView style={styles.container}>
       <Header/>
       <Body/>
-      <Footer/>
+      {/* <Footer/> */}
     </SafeAreaView>
   )
 }

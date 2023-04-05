@@ -8,10 +8,9 @@ import {Ionicons} from "@expo/vector-icons"
 
 const Header = () =>{
     const navigation = useNavigation();
-    console.log(navigation);
     return(
         <View style={Styles.Header}>
-            <Ionicons name="menu-outline" size={32} color={myColors.secondary} 
+            <Ionicons name="menu-outline" size={32} color={myColors.primary} 
                 onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
             />
         </View>

@@ -28,7 +28,7 @@ export default function Login({navigation}){
     <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}} >
     <View style={styles.Login}>
       <View style={styles.img}>
-        <LogIcon height={300} width={300}/>
+        <LogIcon height={300} width={300} fill={myColors.tertiary}/>
       </View>
       <View style={styles.form}>
         <Text style={styles.head}>Login</Text>
@@ -42,7 +42,7 @@ export default function Login({navigation}){
           console.log(values);
           const found = Users.find(User => User.email == values.email && User.password == values.password);
           (found)?
-          navigation.navigate('Root',{screen:'HomePage'})
+          navigation.navigate('Home')
           :console.log("invalid entry");
           // console.log(Users);
       }}>

@@ -13,7 +13,7 @@ const Footer = () =>{
 const Styles = StyleSheet.create({
     Footer:{
         flex:1.8,
-        backgroundColor:myColors.tertiary,
+        backgroundColor:myColors.secondary,
     },
 
 })
