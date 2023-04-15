@@ -8,6 +8,7 @@ import Login from '../../Auth/Login';
 import Dogs from '../../JSON/Dogs.json'
 import Cats from '../../JSON/Cats.json'
 import { myColors } from '../../Config/Color';
+import DrawerNavigation from '../DrawerNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -16,6 +17,16 @@ const BottomNavigation = () => {
     <Tab.Navigator 
     screenOptions={({route})=>({
       headerShown:false,
+      tabBarStyle:{
+        height:60,
+        position:'absolute',
+        bottom:16,
+        right:16,
+        left:16,
+        borderRadius:12,
+        overflow:'hidden',
+      },
+      tabBarShowLabel:false,
       tabBarIcon:({color,size,focused})=>{
         let iconName;
         if(route.name == 'Dogs'){
@@ -26,6 +37,9 @@ const BottomNavigation = () => {
         }
         else if(route.name == 'Home'){
           iconName = focused?'home':'home';
+        }
+        else if(route.name == 'log'){
+          iconName = focused?'heart':'heart';
         }
         return <FontAwesome5 name={iconName} size={22} color={myColors.primary}/>
       },

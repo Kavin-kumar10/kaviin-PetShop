@@ -1,16 +1,20 @@
 import React from "react";
-import { ScrollView,View,StyleSheet,Text,Image } from "react-native";
+import { ListContext } from "../../../Context/ListContext";
+import { useContext } from "react";
+import { ScrollView,View,StyleSheet,Text,Image,TouchableOpacity } from "react-native";
 import Dogs from '../../../JSON/Dogs.json'
 import Cats from '../../../JSON/Cats.json'
 import { myColors } from "../../../Config/Color";
 import Ionicons from '@expo/vector-icons/Ionicons'
-import {pet1,pet2,pet3,pet4,pet5} from '../../../assets';
-import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
-import { useRoute } from "@react-navigation/native";
+import {Dog1,Cat1} from '../../../assets';
+import { TextInput } from "react-native-gesture-handler";
+import { useRoute,useNavigation } from "@react-navigation/native";
 
 
 
 const Body = () =>{
+    const [Users,setUsers,desc,setDesc] = useContext(ListContext);
+    const navigation = useNavigation();
     const route = useRoute();
     let Datas;
     if(route.name == 'Dogs'){
@@ -24,29 +28,32 @@ const Body = () =>{
     }
     return(
         <View style={Styles.Body}>
-        <View style={{flexDirection:'row'}}>
-            <TextInput 
-            style={Styles.searchBar}
-            placeholder='eg: German Shepherd Dog'
-            />
-            <TouchableOpacity style={Styles.searchIcon}>
-                <Ionicons name="search-outline" size={20} color={myColors.primary}/>
-            </TouchableOpacity>
-        </View>
             <ScrollView>
                 <View style={Styles.BodyHead}>
-                    <View style={{alignItems:'flex-start',justifyContent:'center'}}>
+                    <View style={{alignItems:'flex-start',justifyContent:'center',padding:20}}>
                         <Text style={{fontSize:50,color:myColors.primary}}>Helloo ...!</Text>
                         <Text style={{fontSize:20,color:myColors.primary}}>I am ur Friend</Text>
                     </View>
-                    <Image source={pet1} style={{height:180,width:150}}/>
+                    <Image source={(route.name == 'Dogs')?Dog1:Cat1} style={{height:180,width:150}}/>
+                </View>
+                <View style={{flexDirection:'row',marginHorizontal:8}}>
+                    <TextInput 
+                    style={Styles.searchBar}
+                    placeholder='eg: German Shepherd Dog'
+                    />
+                    <TouchableOpacity style={Styles.searchIcon}>
+                        <Ionicons name="search-outline" size={20} color={myColors.primary}/>
+                    </TouchableOpacity>
                 </View>
                 <View style={Styles.BodyContain}>
                     {
                         Datas.animals?.map((item,index)=>{
                             return(
                             <View style={Styles.BodyBox} key={index}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={()=>{
+                                    setDesc(item);
+                                    navigation.navigate('Description');    
+                                }}>
                                 <Image style={Styles.image} source={{uri:`https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/${item.id}/1/?bust=1680411270`}}/>
                                 <View style={Styles.Desc}>
                                        <View style={Styles.DescHead}>
@@ -55,9 +62,9 @@ const Body = () =>{
                                             <Ionicons name="male-outline" size={15} color={myColors.tertiary}/>:
                                             <Ionicons name="female-outline" size={15} color={myColors.tertiary}/>)}
                                         </View> 
-                                        <Text style={{fontSize:15,opacity:0.5,color:myColors.tertiary}}>{item.breeds.primary}</Text>
-                                        <Text style={{fontSize:12,opacity:0.5,color:myColors.tertiary}}>{item.age}</Text>
-                                        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                                        <Text style={{fontSize:15,opacity:0.5,color:myColors.secondary}}>{item.breeds.primary}</Text>
+                                        <Text style={{fontSize:12,opacity:0.3,color:myColors.secondary}}>{item.age}</Text>
+                                        <View style={{flexDirection:'row',justifyContent:'space-between'}} >
                                             {(item.status == 'adoptable')?<Text style={{color:"green"}}>Available</Text>:<Text>Unavailable</Text>}
                                             <Ionicons name="heart-outline" size={15}/>
                                         </View>

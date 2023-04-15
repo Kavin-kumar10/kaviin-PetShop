@@ -5,6 +5,7 @@ import SignUp from '../../Auth/SignUp';
 import Login from '../../Auth/Login';
 import DrawerNavigation from '../DrawerNavigation';
 import BottomNavigation from '../BottomNavigation';
+import Description from '../../Screens/Description';
 import React from 'react'
 import Home from '../../Screens/Home';
 
@@ -18,6 +19,7 @@ const AuthNavigation = () => {
         <Stack.Screen name='DrawerRoot' component={DrawerNavigation}/>
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='BottomRoot' component={BottomNavigation}/>
+        <Stack.Screen name='Description' component={Description}/>
     </Stack.Navigator>
   )
 }

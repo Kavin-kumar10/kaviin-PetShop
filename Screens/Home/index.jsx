@@ -10,7 +10,6 @@ const Home = ({navigation}) => {
     'Dancing':require('../../assets/Fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf')
   })
 
-  console.log(navigation);
   if(!FontsLoaded){
     return <AppLoading/>
   }

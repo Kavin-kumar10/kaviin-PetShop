@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text,Alert,Image,Button, View,SafeAreaView,Platform } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import SideBar from './SideBar';
-import HomePage from '../../Screens/Mainpage';
 import BottomNavigation from '../BottomNavigation';
 const Drawer = createDrawerNavigator();
+import Home from '../../Screens/Home';
+import MainPage from '../../Screens/Mainpage'
 
 
 const DrawerNavigation = () => {
@@ -13,9 +14,12 @@ const DrawerNavigation = () => {
       screenOptions={{
         headerShown:false
       }}
-      initialRouteName={'HomePage'}
+      initialRouteName={'Home'}
     >
-      <Drawer.Screen name='HomePage' component={BottomNavigation}/>
+      <Drawer.Screen name='Home' component={Home}/>
+      <Drawer.Screen name='Dogs' component={MainPage}/>
+      <Drawer.Screen name='Cats' component={MainPage}/>
+
     </Drawer.Navigator>
   )
 }
