@@ -38,11 +38,15 @@ const styles = StyleSheet.create({
     Box:{
         height:80,
         width:80,
-        borderRadius:12,
         margin:8,
-        borderColor:myColors.secondary,
-        borderWidth:1,
         alignItems:'center',
         justifyContent:'center',
+        backgroundColor: myColors.primary,
+        borderRadius: 8,
+        shadowColor: myColors.tertiary,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        elevation: 4,
     }
 })

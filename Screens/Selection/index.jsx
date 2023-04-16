@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font'
 import { myColors } from '../../Config/Color';
 import MainIcon from '../../assets/MainIcon.svg'
 
-const Home = ({navigation}) => {
+const Selection = ({navigation}) => {
   let [FontsLoaded] = useFonts({
     'Dancing':require('../../assets/Fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf')
   })
@@ -32,7 +32,7 @@ const Home = ({navigation}) => {
   )
 }
 
-export default Home
+export default Selection
 
 const styles = StyleSheet.create({
   container:{
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent:'center'
   },
   option:{
-    flex:1.3,
+    flex:1,
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-around'

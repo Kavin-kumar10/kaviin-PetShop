@@ -8,6 +8,7 @@ import BottomNavigation from '../BottomNavigation';
 import Description from '../../Screens/Description';
 import React from 'react'
 import Home from '../../Screens/Home';
+import Selection from '../../Screens/Selection';
 
 const AuthNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ const AuthNavigation = () => {
         <Stack.Screen name='Home' component={Home}/>
         <Stack.Screen name='BottomRoot' component={BottomNavigation}/>
         <Stack.Screen name='Description' component={Description}/>
+
     </Stack.Navigator>
   )
 }

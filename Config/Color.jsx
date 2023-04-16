@@ -6,5 +6,5 @@ export const myColors = {
     "primary":"white",
     "secondary":"#1F1F29",
     "Dimmed":"rgba(225, 225, 225,0.5)",
-    "tertiary":"#d680c9"   
+    "tertiary":"brown"   
 }

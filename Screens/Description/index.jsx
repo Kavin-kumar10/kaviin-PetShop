@@ -5,6 +5,7 @@ import {View,Text,Image,StyleSheet} from 'react-native';
 import { ListContext } from "../../Context/ListContext";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import BoxContain from "./BoxContain";
+import Detail from "./Detail";
 
 
 const Description = () =>{
@@ -16,8 +17,8 @@ const Description = () =>{
                 <Image style={styles.Img} source={{uri:`https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/${desc.id}/1/?bust=1680411270`}}/>
             </View>
             <View style={styles.desc}>
-                <View style={styles.headContain}>
-                    <View>
+                <View style={styles.headContain}> 
+                <View>
                         <Text style={{color:myColors.tertiary,fontSize:40}}>{desc.name}</Text>
                         <Text style={{marginTop:5,fontSize:15,opacity:0.4}}>{desc.breeds.primary}</Text>
                         <Text style={{marginTop:5,fontSize:15,opacity:0.4}}>{desc.breeds.secondary}</Text>
@@ -31,8 +32,11 @@ const Description = () =>{
                         <Ionicons name="male-outline" size={25} color={myColors.tertiary} style={{margin:10}}/>:
                         <Ionicons name="female-outline" size={25} color={myColors.tertiary} style={{margin:10}}/>)}
                     </View>
+                    
                 </View>
                 <BoxContain desc = {desc}/>
+                <View style={{width:"90%",height:1,backgroundColor:'grey',alignSelf:'center'}}></View>
+                <Detail desc = {desc}/>
             </View>
         </View>
     )
@@ -67,6 +71,7 @@ const styles = StyleSheet.create({
         flex:1,
         borderTopLeftRadius:20,
         borderTopRightRadius:20,
-        backgroundColor:'white'
+        backgroundColor:'white',
     },
+
 })
