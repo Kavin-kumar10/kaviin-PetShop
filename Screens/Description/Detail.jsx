@@ -1,9 +1,23 @@
-import { StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View,TouchableOpacity, Alert } from 'react-native'
+import React,{useContext} from 'react'
 import { myColors } from '../../Config/Color'
 import Ionicon from '@expo/vector-icons/Ionicons'
+import { CartContext } from '../../Context/CartContext'
+import { useNavigation } from '@react-navigation/native'
 
 const Detail = ({desc}) => {
+  const [list,setList] = useContext(CartContext);
+  const navigation = useNavigation();
+  const Addtocart = () =>{
+    if(list.includes(desc)){
+      Alert.alert('Oops','Item already in Cart',[{ text: 'Understood'},]);
+    }
+    else{
+      setList([...list,desc]);
+      navigation.navigate('Cart');
+    }
+  }
+  console.log(list);
   return (
     <View style={styles.Detail}>
       <View style={styles.Description}>
@@ -13,7 +27,7 @@ const Detail = ({desc}) => {
         </Text>
       </View>
       
-      <TouchableOpacity style={styles.Btn}>
+      <TouchableOpacity style={styles.Btn} onPress={Addtocart}>
             <Text style={{color:myColors.primary,fontSize:20,letterSpacing:5}}>Add To Cart</Text>
             <Ionicon name='cart' size={20} color={myColors.primary} style={{marginHorizontal:12}}/>
         </TouchableOpacity>

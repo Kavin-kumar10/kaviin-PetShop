@@ -65,7 +65,7 @@ const Body = () =>{
                                         <Text style={{fontSize:15,opacity:0.5,color:myColors.secondary}}>{item.breeds.primary}</Text>
                                         <Text style={{fontSize:12,opacity:0.3,color:myColors.secondary}}>{item.age}</Text>
                                         <View style={{flexDirection:'row',justifyContent:'space-between'}} >
-                                            {(item.status == 'adoptable')?<Text style={{color:"green"}}>Available</Text>:<Text>Unavailable</Text>}
+                                            {(item.status == 'adoptable')?<Text style={{color:"green"}}>Available</Text>:<Text>Adopted</Text>}
                                             <Ionicons name="heart-outline" size={15}/>
                                         </View>
                                 </View>

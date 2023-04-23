@@ -5,10 +5,9 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
 import MainPage from '../../Screens/Mainpage';
 import Home from '../../Screens/Home';
 import Login from '../../Auth/Login';
-import Dogs from '../../JSON/Dogs.json'
-import Cats from '../../JSON/Cats.json'
 import { myColors } from '../../Config/Color';
 import DrawerNavigation from '../DrawerNavigation';
+import Cart from '../../Screens/Cart';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,8 +37,8 @@ const BottomNavigation = () => {
         else if(route.name == 'Home'){
           iconName = focused?'home':'home';
         }
-        else if(route.name == 'log'){
-          iconName = focused?'heart':'heart';
+        else if(route.name == 'Cart'){
+          iconName = focused?'shopping-cart':'shopping-cart';
         }
         return <FontAwesome5 name={iconName} size={22} color={myColors.primary}/>
       },
@@ -53,7 +52,7 @@ const BottomNavigation = () => {
         <Tab.Screen name='Home' component={Home}/>
         <Tab.Screen name='Dogs' component={MainPage}/>
         <Tab.Screen name='Cats' component={MainPage}/>
-        <Tab.Screen name='log' component={Login}/>
+        <Tab.Screen name='Cart' component={Cart}/>
     </Tab.Navigator>
   )
 }
