@@ -1,8 +1,11 @@
-import { StyleSheet, Text, View,ScrollView, Image,TouchableOpacity, Button } from 'react-native'
+import { StyleSheet, Text, View,ScrollView, Image,TouchableOpacity, Button,Dimensions } from 'react-native'
 import React,{useContext} from 'react'
 import { CartContext } from '../../Context/CartContext';
 import { ListContext } from '../../Context/ListContext';
 import { myColors } from '../../Config/Color';
+
+let ScreenHeight = Dimensions.get("window").height;
+let ScreenWidth = Dimensions.get("window").width;
 
 const Cart = () => {
   const [list,setList] = useContext(CartContext);
@@ -58,9 +61,10 @@ export default Cart
 
 const styles = StyleSheet.create({
   Cart:{
+    maxHeight:ScreenHeight,
     flex:1,
-    marginTop:35,
     backgroundColor:myColors.primary,
+    marginTop:15
   },
   items:{
     height:150,
