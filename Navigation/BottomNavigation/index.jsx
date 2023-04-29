@@ -49,7 +49,7 @@ const BottomNavigation = () => {
     })}
     
     >
-        <Tab.Screen name='Home' component={Home}/>
+        <Tab.Screen name='Home' component={Home} options={{tabBarStyle:{display:"none"}}}/>
         <Tab.Screen name='Dogs' component={MainPage}/>
         <Tab.Screen name='Cats' component={MainPage}/>
         <Tab.Screen name='Cart' component={Cart}/>

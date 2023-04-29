@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
     backgroundColor:myColors.primary
   },
   head:{
-    flex:2,
+    flex:3,
     alignItems:'center',
     justifyContent:'center'
   },
   option:{
-    flex:1.3,
+    flex:1,
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-around'

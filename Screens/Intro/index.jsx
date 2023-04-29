@@ -1,4 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View,Image} from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
 import { myColors } from '../../Config/Color'
 import MyImg from '../../assets/Front.svg'
 import React from 'react'
@@ -11,14 +13,16 @@ export default Intro = ({navigation}) => {
       </View>
       <View style={styles.desc}>
         <Text style={styles.descTxt}>Find out your companion on pet shelter</Text>
-        <Text style={styles.descPara}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus inventore quaerat id, ullam pariatur doloremque animi fuga tempora reprehenderit quas!</Text>
+        <Text style={styles.descPara}>Find your new furry friend at our pet shop! We have a wide selection of pets to choose from, and our knowledgeable staff is here to help you make the perfect match.</Text>
       </View>
       <View style={styles.btnContain}>
         <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Sign')}>
             <Text style={styles.btnName}>SignUp</Text>
+            <AntDesign name="lock" size={24} color={myColors.tertiary} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.introBtn} onPress={()=>navigation.navigate('Home')}>
             <Text style={styles.btnName}>Demo User</Text>
+            <AntDesign name="user" size={24} color={myColors.tertiary} />
         </TouchableOpacity>
       </View>
     </View>
@@ -73,7 +77,8 @@ const styles = StyleSheet.create({
       width:150,
       backgroundColor:myColors.primary,
       alignItems:"center",
-      justifyContent:"center",
+      justifyContent:"space-around",
+      flexDirection:"row",
       marginTop:12,
       marginHorizontal:12,
       borderRadius:12,    
